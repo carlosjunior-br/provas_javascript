@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova</title>
+</head>
+
+<body>
+    <h1>Prova [JS-A02]</h1>
+    <p>
+        [JS-A02] Escreva um programa em JavaScript que solicite ao usuário o nome, altura em centímetros
+        e peso de uma pessoa. O programa deve calcular o índice de massa corporal (IMC) dessa pessoa,
+        considerando a fórmula IMC = peso / (altura * altura), onde a altura deve ser convertida de
+        centímetros para metros. Em seguida, o programa deve classificar o peso com base no IMC
+        calculado, de acordo com a tabela a seguir: <br><br>
+
+        Menor que 16: Baixo peso muito grave <br>
+        De 16 a 16.99: Baixo peso grave <br>
+        De 17 a 18.49: Baixo peso <br>
+        De 18.50 a 24.99: Peso normal <br>
+        De 25 a 29.99: Sobrepeso <br>
+        De 30 a 34.99: Obesidade grau I <br>
+        De 35 a 39.99: Obesidade grau II <br>
+        Maior ou igual a 40: Obesidade grau III <br><br>
+        O programa deve exibir o nome da pessoa, o índice de massa corporal calculado e a classificação correspondente.
+    </p>
+    <br>
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome">
+    <br><br>
+    <label for="altura">Altura (cm):</label>
+    <input type="number" name="altura" id="altura">
+    <br><br>
+    <label for="peso">Peso (kg):</label>
+    <input type="number" name="peso" id="peso">
+    <br><br>
+    <p id="saida-nome"></p>
+    <p id="saida-imc"></p>
+    <p id="resultado"></p>
+    <button onclick="action()">Clique aqui para executar a função</button>
+    <script>
+        function action() {
+            nome = document.getElementById('nome').value
+            altura = parseFloat(document.getElementById('altura').value) / 100
+            peso = parseFloat(document.getElementById('peso').value)
+            resultado = ''
+            imc = peso / (altura * altura)
+            imcArredondado = imc.toFixed(2)
+            switch (true) {
+                case imcArredondado < 16:
+                    resultado = 'Menor que 16: Baixo peso muito grave'
+                    break
+                case imcArredondado >= 16 && imcArredondado <= 16.99:
+                    resultado = 'De 16 a 16.99: Baixo peso grave'
+                    break
+                case imcArredondado > 16.99 && imcArredondado <= 18.49:
+                    resultado = 'De 17 a 18.49: Baixo peso'
+                    break
+                case imcArredondado > 18.49 && imcArredondado <= 24.99:
+                    resultado = 'De 18.50 a 24.99: Peso normal'
+                    break
+                case imcArredondado > 24.99 && imcArredondado <= 29.99:
+                    resultado = 'De 25 a 29.99: Sobrepeso'
+                    break
+                case imcArredondado > 29.99 && imcArredondado <= 34.99:
+                    resultado = 'De 30 a 34.99: Obesidade grau I'
+                    break
+                case imcArredondado > 34.99 && imcArredondado <= 39.99:
+                    resultado = 'De 35 a 39.99: Obesidade grau II'
+                    break
+                case imcArredondado > 39.99:
+                    resultado = 'Maior ou igual a 40: Obesidade grau III'
+                    break
+                default:
+                    resultado = "Opção inválida"
+            }
+            document.getElementById('saida-nome').innerHTML = `Nome: ${nome}.`
+            document.getElementById('saida-imc').innerHTML = `IMC calculado: ${imcArredondado}`
+            document.getElementById('resultado').innerHTML = resultado
+        }
+    </script>
+</body>
+
+</html>
