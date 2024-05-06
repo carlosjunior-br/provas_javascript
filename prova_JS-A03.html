@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JS-A03</title>
+</head>
+
+<body>
+    <h1>Prova JS-A03</h1>
+    <p> Você foi contratado(a) para desenvolver um programa que irá auxiliar um professor a calcular algumas estatísticas das notas de seus alunos. O programa deve solicitar ao professor o número total de estudantes na turma e, em seguida, pedir que ele insira as notas de cada aluno individualmente. Após receber todas as notas, o programa deverá calcular a média da turma e identificar a maior e a menor nota obtida.
+        <br><br>
+        Instruções:
+        <br><br>
+        Solicite ao professor que digite o número total de estudantes na turma.<br>
+        Em seguida, peça que o professor insira a nota de cada aluno individualmente, uma por vez.<br>
+        Calcule a média da turma somando todas as notas e dividindo pelo número total de estudantes.<br>
+        Identifique e registre a maior nota obtida na turma.<br>
+        Ao final, exiba a média da turma e a maior e a menor nota encontrada.
+        <br><br>
+        Dicas:
+        <br><br>
+        Utilize um loop while para coletar as notas de todos os alunos.<br>
+        Armazene as notas em uma variável e vá atualizando o valor da soma a cada nova nota inserida.<br>
+        Compare cada nota com a maior nota atualmente registrada para encontrar a maior nota.<br>
+        Para calcular a média, divida a soma das notas pelo número total de estudantes.<br>
+        Exiba os resultados de forma clara e organizada.
+    </p>
+    <button onclick="action()">Clique aqui para executar</button>
+    <p>Os resultados serão mostrados abaixo:</p>
+    <div id="tela"></div>
+    <script>
+        function action() {
+            let numeroDeAlunos = parseInt(window.prompt('Digite o número total de estudantes na turma:'))
+            let indice = 0
+            let listaDeNotas = []
+            let somaNotas = 0
+            while (indice < numeroDeAlunos) {
+                recebeNota = parseFloat(window.prompt(`Digite a nota do ${indice + 1}º aluno:`))
+                somaNotas += recebeNota
+                listaDeNotas.push(recebeNota)
+                indice += 1
+            }
+            let media = somaNotas / numeroDeAlunos
+            let listaDeNotasOrdenada = listaDeNotas.slice().sort(function(a, b) {
+                return a - b
+            })
+            let maiorNota = listaDeNotasOrdenada[numeroDeAlunos-1]
+            let menorNota = listaDeNotasOrdenada[0]
+            document.getElementById('tela').innerHTML =
+            `<strong>Número total de estudantes na turma:</strong> ${numeroDeAlunos}<br><br>
+            <strong>Média da turma:</strong> ${media.toFixed(2)}<br><br>
+            <strong>Maior nota encontrada:</strong> ${maiorNota.toFixed(2)}<br><br>
+            <strong>Menor nota encontrada:</strong> ${menorNota.toFixed(2)}`
+        }
+    </script>
+</body>
+
+</html>
