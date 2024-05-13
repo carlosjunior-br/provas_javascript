@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JS-A04</title>
+</head>
+
+<body>
+    <h1>Prova JS-A04</h1>
+    <p> Você é um desenvolvedor de software que trabalha em uma equipe especializada em criar ferramentas matemáticas para uma empresa do mercado financeiro. A empresa precisa de uma nova funcionalidade para sua plataforma online, permitindo que os usuários obtenham informações sobre cálculos matemáticos importantes relacionados aos investimentos.
+        <br><br>
+        Sua tarefa é criar um módulo JavaScript que ofereça aos usuários a possibilidade de inserir um número inteiro positivo e, em resposta, calcular o fatorial desse número e também a sequência de Fibonacci até aquele número. Isso ajudará os investidores a realizar análises mais detalhadas sobre suas decisões financeiras.
+    </p>
+    <button onclick="action()">Clique aqui para executar</button>
+    <p>Os resultados serão mostrados abaixo:</p>
+    <div id="tela"></div>
+    <script>
+        function action() {
+            let numero = parseInt(window.prompt('Digite um número inteiro positivo:'))
+            let fatorial = 0
+            if (numero < 0) {
+                window.alert("O número deve ser um inteiro positivo.")
+                return
+            } else if (numero === 0) {
+                fatorial = 1
+            } else {
+                fatorial = 1
+                for (let i = 1; i <= numero; i+=1) {
+                    fatorial *= i
+                }
+            }
+
+            let fibonacci = [0, 1]
+            let i = 2
+            while (fibonacci[i - 1] + fibonacci[i - 2] <= numero) {
+                fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2]
+                i+=1;
+            }
+            document.getElementById('tela').innerHTML =
+            `<strong>Número inserido:</strong> ${numero}<br><br>
+            <strong>Fatorial do número:</strong> ${fatorial}<br><br>
+            <strong>Sequência de Fibonacci até o número:</strong> ${fibonacci}`
+        }
+    </script>
+</body>
+
+</html>
