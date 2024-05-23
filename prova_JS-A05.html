@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JS-A05</title>
+</head>
+
+<body>
+    <h1>Prova JS-A05</h1>
+    <p> Você foi convidado(a) a desenvolver um aplicativo web para ajudar a gerenciar as tarefas domésticas de uma família agitada. O objetivo é criar um "Gerenciador de Tarefas Domésticas" que permita que todos os membros da família adicionem, removam e atualizem suas tarefas diárias, garantindo que tudo seja feito de forma organizada.</p>
+    <h1>Gerenciador de Tarefas Domésticas</h1>
+    <button onclick="listar()">Listar tarefas</button><br><br>
+    <button onclick="adicionar()">Adicionar tarefa</button><br><br>
+    <button onclick="remover()">Remover tarefa</button><br><br>
+    <button onclick="remover_todas()">Remover todas as tarefa</button><br><br>
+    <button onclick="atualizar()">Atualizar tarefa</button><br><br>
+    <label for="tarefa">Digite a tarefa a ser adicionada ou atualizada:</label>
+    <input type="text" name="tarefa" id="tarefa"><br><br>
+    <label for="selecionaTarefa">Selecione a tarefa a ser atualizada ou removida da lista:</label>
+    <select id="selecionaTarefa"></select><br><br>
+    <p>Lista de tarefas:</p>
+    <ul id="lista"></ul>
+    
+    <script>
+        let listaHTML = document.getElementById('lista')
+        let tarefa = document.getElementById('tarefa')
+        let selecionaTarefa = document.getElementById('selecionaTarefa')
+        let listaTarefas = []
+        function atualizarSelect() {
+            selecionaTarefa.innerText = ''
+            for (let tarefa of listaTarefas) {
+                let opcao = document.createElement('option')
+                opcao.value = tarefa
+                opcao.text = tarefa
+                selecionaTarefa.appendChild(opcao)
+            }
+        }
+        function listar() {
+            listaHTML.innerText = ''
+            if (listaTarefas.length == 0) {
+                window.alert('Não existe nenhuma tarefa cadastrada!')
+            }
+            else {
+                for (let tarefa of listaTarefas) {
+                    let li = document.createElement('li')
+                    li.innerText = tarefa
+                    listaHTML.append(li)
+                }
+            }
+        }
+        function adicionar() {
+            listaHTML.innerText = ''
+            if (tarefa.value == '') {
+                window.alert('Digite uma tarefa para ser cadastrada!')
+                tarefa.focus()
+            }
+            else {
+                listaTarefas.push(tarefa.value)
+                window.alert(`A tarefa ${tarefa.value} foi cadastrada com sucesso!`)
+                atualizarSelect()
+            }
+        }
+        function remover() {
+            listaHTML.innerText = ''
+            if (listaTarefas.length == 0) {
+                window.alert('Não existe nenhuma tarefa cadastrada!')
+            }
+            else {
+                let indice = listaTarefas.indexOf(selecionaTarefa.value)
+                listaTarefas.splice(indice, 1)
+                window.alert(`A tarefa ${selecionaTarefa.value} foi removida com sucesso!`)
+                atualizarSelect()
+            }
+        }
+        function remover_todas() {
+            listaHTML.innerText = ''
+            if (listaTarefas.length == 0) {
+                window.alert('Não existe nenhuma tarefa cadastrada!')
+            }
+            else {
+                listaTarefas = []
+                window.alert('Todas as tarefas foram removidas com sucesso!')
+                atualizarSelect()
+            }
+        }
+        function atualizar() {
+            listaHTML.innerText = ''
+            if (listaTarefas.length == 0) {
+                window.alert('Não existe nenhuma tarefa cadastrada!')
+            }
+            else {
+                if (tarefa.value == '') {
+                window.alert('Digite uma nova tarefa para ser atualizada no lugar da tarefa selecionada na lista!')
+                tarefa.focus()
+                }
+                else {
+                    let indice = listaTarefas.indexOf(selecionaTarefa.value)
+                    listaTarefas.splice(indice, 1, tarefa.value)
+                    window.alert(`A tarefa ${selecionaTarefa.value} foi atualizada com sucesso para ${tarefa.value}!`)
+                    atualizarSelect()
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', atualizarSelect);
+    </script>
+</body>
+
+</html>
