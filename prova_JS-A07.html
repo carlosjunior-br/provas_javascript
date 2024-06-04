@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JS-A07</title>
+</head>
+
+<body>
+    <h1>Prova JS-A07</h1>
+    
+    <p>Imagine que você está criando uma solução digital para restaurantes, incluindo uma calculadora de gorjetas de fácil uso. O objetivo é desenvolver uma página da web onde os clientes possam inserir o valor total da conta e escolher a qualidade do serviço: "Bom", "Regular" ou "Ruim". Para isso, serão utilizadas arrow functions e funções de callback.</p>
+    
+    <h1>Calculadora de gorjetas de fácil uso</h1>
+    
+    <label for="totalConta">Digite o valor total da conta: R$ </label>
+    <input type="number" id="totalConta"><br><br>
+
+    <label for="qualidadeServico">Selecione a qualidade do serviço: </label>
+    <select id="qualidadeServico">
+        <option value="0.10">Bom (gorjeta de 10%)</option>
+        <option value="0.05">Regular (gorjeta de 5%)</option>
+        <option value="0.01">Ruim (gorjeta de 1%)</option>
+    </select><br><br>
+
+    <button onclick="calcularGorjeta()">Calcular</button><br><br>
+
+    <span id="resultado"></span>
+    
+    <script>
+        const calcularGorjeta = () => {
+            let totalConta = parseFloat(document.getElementById('totalConta').value)
+            let qualidadeServico = parseFloat(document.getElementById('qualidadeServico').value)
+            let gorjeta = calcularValorGorjeta(totalConta, qualidadeServico)
+            let valorTotal = totalConta + gorjeta
+            let resultado = document.getElementById("resultado")
+            resultado.innerText = `Gorjeta: R$ ${gorjeta.toFixed(2)}\nValor total da conta: R$ ${valorTotal.toFixed(2)}`
+            
+        }
+        const calcularValorGorjeta = (total, taxa) => total * taxa
+    </script>
+</body>
+</html>
