@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JS-A06</title>
+</head>
+
+<body>
+    <h1>Prova JS-A06</h1>
+    
+    <p>Crie no seu HTML dois inputs do tipo "number" e um botão. Quando clicado, o botão irá chamar uma função que calcula o IMC (Índice de Massa Corporal) e exibe o resultado na tela. Defina uma função que recebe os valores dos inputs (peso e altura), calcula o IMC e exibe o resultado na tela.</p>
+    <p>A fórmula do IMC é:</p>
+    <p>IMC = peso / (altura * altura)</p>
+    
+    <h1>Cálculo de IMC (Índice de Massa Corporal)</h1>
+    
+    <label for="peso">Digite o peso: </label>
+    <input type="number" id="peso"><br><br>
+
+    <label for="altura">Digite a altura: </label>
+    <input type="number" id="altura"><br><br>
+
+    <button onclick="exibirImc()">Calcular</button><br><br>
+
+    <span id="resultado"></span>
+    
+    <script>
+        function calcularImc(p, a) {
+            let imc = p / (a * a)
+            return imc
+        }
+        function exibirImc() {
+            let peso = parseFloat(document.getElementById("peso").value)
+            let altura = parseFloat(document.getElementById("altura").value)
+            let resultado = document.getElementById("resultado")
+            console.log(peso)
+            console.log(altura)
+            resultado.innerText = calcularImc(peso, altura).toFixed(2)
+        }
+    </script>
+</body>
+</html>
