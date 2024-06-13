@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JS-A08</title>
+</head>
+
+<body>
+    <h1>Prova JS-A08</h1>
+    
+    <p>Você está planejando uma viagem para os Estados Unidos e precisa converter algumas distâncias do sistema métrico (metros) para o sistema imperial (jardas, pés, polegadas, milhas). Para facilitar sua tarefa, você decidiu criar um conversor de unidades de comprimento.</p>
+    <p>Instruções:</p>
+    <p>Selecione a unidade de medida de destino no segundo menu suspenso. Você pode escolher entre "Jarda", "Pé", "Polegada" ou "Milha".br<br>
+        Clique no botão "Converter" para ver o resultado da conversão.<br><br>
+        Dicas de Valores:<br><br>
+        Um metro é aproximadamente igual a 1.094 jardas, 3.281 pés, 39.37 polegadas ou 0.000621 milhas.</p>
+    
+    <h1>Conversor de unidades de comprimento</h1>
+    
+    <label for="metros">Digite o valor da distância em metros: </label>
+    <input type="number" id="metros" placeholder="Distância em metros" required min="0.01" step="any"><br><br>
+
+    <label for="medidaDestino">Selecione a medida de destino: </label>
+    <select id="medidaDestino">
+        <option value="1.094">Jarda</option>
+        <option value="3.281">Pé</option>
+        <option value="39.37">Polegada</option>
+        <option value="0.000621">Milha</option>
+    </select><br><br>
+
+    <button id="btnConverter">Converter</button><br><br>
+
+    <span id="resultado"></span>
+    
+    <script>
+        let recebeMetros = document.getElementById("metros")
+        let recebeMedidaDestino = document.getElementById("medidaDestino")
+        let botaoConverter = document.getElementById("btnConverter")
+        let spanResultado = document.getElementById("resultado")
+        recebeMetros.focus()
+
+        function converter(metros, destino) {
+            let valorConvertido = parseFloat(metros) * parseFloat(destino)
+            return valorConvertido.toFixed(6)
+        }
+
+        botaoConverter.addEventListener("click", function() {
+            let valorMetros = parseFloat(recebeMetros.value)
+            if (isNaN(valorMetros) || valorMetros <= 0) {
+                spanResultado.innerText = "Por favor, insira um valor válido para metros."
+                recebeMetros.focus()
+                return
+            }
+            let opcaoSelecionada = recebeMedidaDestino.options[recebeMedidaDestino.selectedIndex].textContent
+            let resultado = converter(recebeMetros.value, recebeMedidaDestino.value)
+            spanResultado.innerText = `${recebeMetros.value} Metro(s) é referente a ${resultado} ${opcaoSelecionada}(s)`
+        })
+    </script>
+</body>
+</html>
