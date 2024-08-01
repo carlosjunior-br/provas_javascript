@@ -1,0 +1,12 @@
+[JS-A14] A empresa XYZ está desenvolvendo uma aplicação web interativa para amantes de cachorros. O objetivo principal é criar uma galeria de raças de cachorros que permita aos usuários visualizar imagens aleatórias de diferentes raças. Cada raça será representada por um botão, e ao clicar em um botão, a aplicação deve exibir uma seleção de imagens da raça correspondente.
+Requisitos Funcionais:
+Listagem de Raças:
+A aplicação deve obter a lista de raças de cachorros da API do Dog CEO (https://dog.ceo/api/breeds/list/all) e exibi-las como botões na página inicial.
+Exibição de Imagens:
+Ao clicar em um botão de raça, a aplicação deve solicitar imagens aleatórias dessa raça da API (https://dog.ceo/api/breed/{breed}/images/random/4) e exibi-las dinamicamente na página.
+Layout Responsivo:
+O layout da aplicação deve ser responsivo para garantir uma experiência de usuário consistente em dispositivos desktop e móveis.
+Estilo Visual Atraente:
+Utilize boas práticas de design para criar uma interface visual atraente e amigável para o usuário. Isso inclui a escolha de cores, fontes e o posicionamento adequado dos elementos na página.
+Tratamento de Erros:
+Implemente um tratamento adequado para lidar com possíveis erros durante as solicitações à API, garantindo uma experiência de usuário suave.
