@@ -1,0 +1,13 @@
+/* Estilos personalizados */
+
+#card-lista-contatos {
+    background-color: #adb5bd;
+}
+
+#card-lista-contatos h3 {
+    color: black;
+}
+
+#card-lista-contatos .card-body {
+    padding: 1rem;
+}
