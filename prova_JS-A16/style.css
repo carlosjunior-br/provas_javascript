@@ -1,0 +1,24 @@
+.titulo-e-botao {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+#lista-racas button {
+    flex: 1 0 21%; /* Botões com largura de aproximadamente 21%, com margem */
+    margin: 5px;
+    text-transform: capitalize;
+}
+
+#galeria-imagens .card {
+    flex: 1 0 21%; /* Imagens com largura de aproximadamente 21%, com margem */
+    margin: 5px;
+}
+
+#galeria-imagens img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
