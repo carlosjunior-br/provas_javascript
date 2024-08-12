@@ -1,1 +1,12 @@
+[JS-A16] A empresa XYZ ficou impressionada com a sua aplicação de Galeria de Raças de Cachorros. Agora, eles têm o objetivo de aprimorar o código existente e integrar funcionalidades mais avançadas. Para isso, desejam que você refatore o código, substituindo as chamadas de API assíncronas usando async/await para tornar o código mais legível e eficiente.
 
+Requisitos Atualizados:
+
+Refatoração para async/await:
+Substitua o uso de fetch e manipulação de promessas por async/await para simplificar a lógica assíncrona do código.
+
+Exibição de Carregamento:
+Implemente uma mensagem de carregamento durante as solicitações assíncronas para fornecer feedback ao usuário enquanto as imagens estão sendo carregadas.
+
+Tratamento de Erros Aprimorado:
+Melhore o tratamento de erros para fornecer mensagens claras e significativas ao usuário em caso de falha nas solicitações à API.
