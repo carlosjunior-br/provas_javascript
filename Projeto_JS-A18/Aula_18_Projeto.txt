@@ -1,0 +1,15 @@
+Projeto de Carrinho de Compras 
+
+Catálogo de Produtos:
+Exiba um catálogo de produtos para os usuários navegarem. Cada produto deve ter informações detalhadas, incluindo nome, descrição, preço e disponibilidade.
+
+Carrinho de Compras:
+Permita que os usuários adicionem produtos a um carrinho de compras. Mostre um resumo do carrinho, incluindo nome, quantidade, preço unitário e total.
+
+Notificação de Confirmação de Pedido:
+Utilize a API de Notificações do AfterShip para enviar uma mensagem de confirmação de pedido após a conclusão da compra.
+
+Segurança:
+Implemente medidas básicas de segurança, como autenticação para acessar páginas restritas.
+
+Link da API: API de loja falsa (fakestoreapi.com)
